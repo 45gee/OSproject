@@ -244,11 +244,12 @@ Q1ID=-1;
 min=10000000;
  }
 
-
+System.out.printf("%6s | %10s | %12s | %16s | %13s | %s","", "Start time","Waiting time","Termination time",
+"Response time","Turn Around time");
 for(int i=0;i<numOfP;i++){
 PCB temp=result.poll();
-System.out.println("ID: " + temp.getProcessID() + " |startTime:"+temp.getstartTime()+ " |waitingTime:"+temp.getwaitingTime()
-+ " |terminationTime:"+temp.getterminationTime()+ " |responseTime:"+temp.getresponseTime()+ " |roundTime:"+temp.getroundTime());}
+System.out.printf("%n ID: %d | %-10d | %-12d | %-16d | %-13d | %d", temp.getProcessID() , temp.getstartTime(), temp.getwaitingTime(),
+temp.getterminationTime(), temp.getresponseTime(), temp.getroundTime());}
 
 }
    
