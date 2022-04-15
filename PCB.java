@@ -38,7 +38,7 @@ public class PCB {
    int roundTime; //turn around time
    int waitingTime;
    int responseTime;
-   //int PNUMBER =0; // id counter
+   //int PNUMBER =0; //id counter
    
    public PCB(){
       this.processID=0;
