@@ -77,11 +77,13 @@ i2++;}
 }
 
 for(int i=0;i<Q1.length;i++){
+if(Q1[i] == null)break;
 int temp=Q1[i].arrivalTime;
 if(maxArrivalQ1<temp)
 maxArrivalQ1=temp;}
 
 for(int i=0;i<Q2.length;i++){
+if(Q2[i] == null)break;
 int temp=Q2[i].arrivalTime;
 if(maxArrivalQ2<temp)
 maxArrivalQ2=temp;}
@@ -213,8 +215,18 @@ Q2ID=temp2.getProcessID();}
 
 if( temp2.getterminationTime() == -1 ){
 temp2.setstartTime(timer);
-temp2.setresponseTime(timer-temp2.getArrivalTime());
-temp2.setwaitingTime(timer - temp2.getArrivalTime());
+int at = temp2.getArrivalTime();
+
+if(temp2.getwaitingTime()-temp2.getArrivalTime() <0)
+temp2.setresponseTime(0);
+else
+temp2.setresponseTime(temp2.getwaitingTime()-temp2.getArrivalTime());
+
+if(temp2.getroundTime() - temp2.getCpuBurst()<0)
+temp2.setwaitingTime(0);
+else
+temp2.setwaitingTime(temp2.getroundTime() - temp2.getCpuBurst());
+
 temp2.setterminationTime(timer+1);
 temp2.setCpuBurst(temp2.getCpuBurst()-1);
 //timer++;
@@ -234,6 +246,8 @@ Q2ID=-1;
 countP--;}
 
 }//end q2
+chQ2.add(temp2);
+
 
 System.out.println("time: "+timer);
 //if(!Q1found && Q2ID==-1)
@@ -246,10 +260,13 @@ min=10000000;
 
 System.out.printf("%6s | %10s | %12s | %16s | %13s | %s","", "Start time","Waiting time","Termination time",
 "Response time","Turn Around time");
+
 for(int i=0;i<numOfP;i++){
-PCB temp=result.poll();
+try {PCB temp=result.poll();
 System.out.printf("%n ID: %d | %-10d | %-12d | %-16d | %-13d | %d", temp.getProcessID() , temp.getstartTime(), temp.getwaitingTime(),
-temp.getterminationTime(), temp.getresponseTime(), temp.getroundTime());}
+temp.getterminationTime(), temp.getresponseTime(), temp.getroundTime());
+}catch(Exception IllegalStateException) {System.out.println("oops");}
+}
 
 }
    
@@ -284,7 +301,7 @@ p.println("#"+(i+1)+" process ID: "+Q2[i].getProcessID()+"|priority:"+Q2[i].getP
         boolean stop = false;
         do
         {    
-            System.out.println("\n\t\t\t **** OS Schedule **** \n");
+            System.out.println("\n\n\t\t\t **** OS Schedule **** \n");
             System.out.println("Welcome to the Operating Systems Schedule!"+
                                 "\n\nPlease choose a number from the menu:\n"+
                                 "\n1. Enter process' information"+
