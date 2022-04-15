@@ -38,18 +38,18 @@ public class PCB {
    int roundTime; //turn around time
    int waitingTime;
    int responseTime;
-   //int PNUMBER =0; //id counter
+   //int PNUMBER =0; // id counter
    
    public PCB(){
       this.processID=0;
       this.arrivalTime=0;
       this.priority=0;
       this.burstTime=0;
-      this.startTime=0;
-      this.terminationTime=0;
-      this.roundTime=0;
-      this.waitingTime=0;
-      this.responseTime=0;
+      this.startTime=-1;
+      this.terminationTime=-1;
+      this.roundTime=-1;
+      this.waitingTime=-1;
+      this.responseTime=-1;
       }
      
      
@@ -58,11 +58,12 @@ public class PCB {
       this.arrivalTime=arrivalTime;
       this.priority=priority;
       this.burstTime=burstTime;
-      this.startTime=0;
-      this.terminationTime=0;
-      this.roundTime=0;
-      this.waitingTime=0;
-      this.responseTime=0;
+      this.startTime=-1;
+      this.terminationTime=-1;
+      this.roundTime=-1;
+      this.waitingTime=-1;
+      this.responseTime=-1;
+
       }
       
  public void setresponseTime(int responseTime){
