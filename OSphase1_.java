@@ -335,29 +335,30 @@ PCB temp;//edit by r
       AVGturnaround= AVGturnaround/numOfP;
       AVGwaiting=  AVGwaiting/numOfP;
       AVGresponse=  AVGresponse/numOfP;
+System.out.println("\nAvg turn around time:"+AVGturnaround);
+System.out.println("Avg waiting time:"+AVGwaiting);
+System.out.println("Avg response time:"+AVGresponse);
 
-
+PCB tmp;
 //write in file
 try (FileWriter fi = new FileWriter("Report2.txt", true);
 BufferedWriter bi = new BufferedWriter(fi);
 PrintWriter pi = new PrintWriter(bi);) {
 
 pi.println("Report number -2-");
-for(int i=0;i<=numOfP;i++){
-PCB tmp=result.poll();
+for(int i=0;i<numOfP;i++){
+tmp=result.poll();
 result.add(tmp);
 
 try {pi.println("ID: " +tmp.getProcessID()+" | Start time: "+tmp.getstartTime()+" | Waiting time: "+ tmp.getwaitingTime()+" | Termination time: "+ tmp.getterminationTime()+" | Response time: "+ tmp.getresponseTime()+" | Turn around time"+ tmp.getroundTime());
 pi.print("\n\n[");
-for(int j=0; j<=numOfP;j++){
+/*for(int j=0; j<numOfP;j++){
 current = result.poll();
 for(int q=0 ; q<(current.getterminationTime()-current.getstartTime()) ; q++){
-pi.print("P"+ current.getProcessID()+ "|");
-}
-}
+pi.print("P"+ current.getProcessID()+ "|");}
+}*/
 pi.print("]");
-}
-catch(Exception IllegalStateException) {System.out.println("oops file");}
+}catch(Exception IllegalStateException) {System.out.println("oops file");}
 }
 }catch(IOException i) {i.printStackTrace();}
 }//end case 3

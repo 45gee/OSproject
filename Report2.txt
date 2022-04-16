@@ -1,0 +1,20 @@
+Report number -2-
+ID: 0 | Start time: 0 | Waiting time: 0 | Termination time: 3 | Response time: 0 | Turn around time3
+
+
+[P1|P1|P1|P0|P0|P0|Report number -2-
+ID: 0 | Start time: 0 | Waiting time: 0 | Termination time: 7 | Response time: 0 | Turn around time7
+
+
+[P1|P1|P1|P0|P0|P0|P0|P0|P0|P0|Report number -2-
+ID: 1 | Start time: 2 | Waiting time: 0 | Termination time: 3 | Response time: 0 | Turn around time1
+
+
+[P0|P0|P1|Report number -2-
+ID: 1 | Start time: 2 | Waiting time: 0 | Termination time: 3 | Response time: 0 | Turn around time1
+
+
+[]ID: 0 | Start time: 3 | Waiting time: 0 | Termination time: 5 | Response time: 0 | Turn around time2
+
+
+[]
