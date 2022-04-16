@@ -179,13 +179,13 @@ min=temp1.getCpuBurst();
 preArrTime=temp1.getArrivalTime();} }
 }
 
-if (temp1 != chQ1.element())
 cpuHistory += "P" + chQ1.element().getProcessID() + "|";
 
 chQ1.add(temp1);
 //System.out.println(chQ1.element().getProcessID());
 }
 //cpu schedule
+cpuHistory += "P" + chQ1.element().getProcessID() + "|";
 
 
 //find P1 using PID
