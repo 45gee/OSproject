@@ -266,17 +266,19 @@ System.out.printf("%n ID: %d | %-10d | %-12d | %-16d | %-13d | %d", temp.getProc
 temp.getterminationTime(), temp.getresponseTime(), temp.getroundTime());
 }catch(Exception IllegalStateException) {System.out.println("oops");}
 }
-//write in file
-try (FileWriter f = new FileWriter("Report2.txt", true);
-BufferedWriter b = new BufferedWriter(f);
-PrintWriter p = new PrintWriter(b);) {
 
-p.println("Report number -"+(++RNUM)+"-");
+//write in file
+try (FileWriter fi = new FileWriter("Report2.txt", true);
+BufferedWriter bi = new BufferedWriter(fi);
+PrintWriter pi = new PrintWriter(bi);) {
+
+pi.println("Report number -2-");
 for(int i=0;i<numOfP;i++){
-PCB temp=result.poll();
-p.printf("%n ID: %d | %-10d | %-12d | %-16d | %-13d | %d", temp.getProcessID() , temp.getstartTime(), temp.getwaitingTime(),
-temp.getterminationTime(), temp.getresponseTime(), temp.getroundTime());}
-}catch(Exception e ) {System.out.println("oops");} 
+try {PCB temp=result.poll();
+pi.println("ID: " +temp.getProcessID()+" | Start time: "+temp.getstartTime()+" | Waiting time: "+ temp.getwaitingTime()+" | Termination time: "+ temp.getterminationTime()+" | Response time: "+ temp.getresponseTime()+" | Turn around time"+ temp.getroundTime());
+}catch(Exception IllegalStateException) {System.out.println("oops");}
+}
+}catch(IOException i) {i.printStackTrace();} 
 }//end case 3
    
 ////////////////////////////////////////////////////////////////  
