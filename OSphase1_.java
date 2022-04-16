@@ -50,6 +50,7 @@ System.out.println(e.getMessage());
 System.out.println("Please enter the CPU burst time for process #" + (i + 1) + ":");
 int cpuBurst = input.nextInt();
 PCBarray[i].setCpuBurst(cpuBurst);
+PCBarray[i].setICpuBurst(cpuBurst);
 
 System.out.println("Please enter the process arrival time for process #" + (i + 1) + ":");
 int arrivalTime = input.nextInt();
@@ -146,7 +147,11 @@ PCB temp2=new PCB();
 boolean usedQ1=false;
 boolean Q1found=false;
 boolean intr=false;
+<<<<<<< Updated upstream
 String cpuHistory = "";
+=======
+//int cpuBurst1;
+>>>>>>> Stashed changes
 
 while(true){
 if(timer == 20)
@@ -224,16 +229,29 @@ Q2ID=temp2.getProcessID();}
 if( temp2.getterminationTime() == -1 ){
 temp2.setstartTime(timer);
 
-if(temp2.getwaitingTime()-temp2.getArrivalTime() <0)
+/////////////////set wait & termination
+if(temp2.getstartTime() == 0){
 temp2.setresponseTime(0);
-else
-temp2.setresponseTime(temp2.getwaitingTime()-temp2.getArrivalTime());
-
-if(temp2.getroundTime() - temp2.getCpuBurst()<0)
 temp2.setwaitingTime(0);
+}
 else
+<<<<<<< Updated upstream
 temp2.setwaitingTime(temp2.getroundTime() - temp2.getCpuBurst());
   
+=======
+//temp2.getwaitingTime()-temp2.getArrivalTime() <0 || 
+if(temp2.getroundTime() - temp2.getICpuBurst() <0){
+temp2.setresponseTime(temp2.getArrivalTime()-temp2.getwaitingTime());
+temp2.setwaitingTime(temp2.getICpuBurst() - temp2.getroundTime());
+}
+
+else{
+temp2.setresponseTime(temp2.getwaitingTime()-temp2.getArrivalTime());
+temp2.setwaitingTime(temp2.getroundTime() - temp2.getICpuBurst());
+}
+////////////////////////
+
+>>>>>>> Stashed changes
 temp2.setterminationTime(timer+1);
 temp2.setCpuBurst(temp2.getCpuBurst()-1);
 //timer++;
@@ -244,10 +262,28 @@ temp2.setwaitingTime( temp2.getwaitingTime() + (timer - temp2.getterminationTime
 temp2.setCpuBurst(temp2.getCpuBurst()-1);
 temp2.setterminationTime(timer+1);
 //timer++;
+
 }
 
 if( temp2.getCpuBurst() == 0 ){
 temp2.setroundTime( temp2.getterminationTime() - temp2.getArrivalTime() );
+
+
+////////////////////set wait & termination
+if(temp2.getstartTime() == 0){
+temp2.setresponseTime(0);
+temp2.setwaitingTime(0);
+}
+else
+if(temp2.getroundTime() - temp2.getICpuBurst() <0){
+temp2.setwaitingTime(temp2.getICpuBurst() - temp2.getroundTime());
+temp2.setresponseTime(temp2.getwaitingTime());
+}
+else{
+temp2.setwaitingTime(temp2.getroundTime() - temp2.getICpuBurst());
+temp2.setresponseTime(temp2.getwaitingTime());
+}/////////////////
+
 result.add(temp2);
 Q2ID=-1;
 countP--;}
@@ -269,7 +305,11 @@ System.out.printf("%6s | %10s | %12s | %16s | %13s | %s","", "Start time","Waiti
 "Response time","Turn Around time");
 
 for(int i=0;i<numOfP;i++){
+
 try {PCB temp=result.poll();
+//System.out.println(temp.getICpuBurst());
+//System.out.println(temp.getroundTime());
+
 System.out.printf("%n ID: %d | %-10d | %-12d | %-16d | %-13d | %d", temp.getProcessID() , temp.getstartTime(), temp.getwaitingTime(),
 temp.getterminationTime(), temp.getresponseTime(), temp.getroundTime());
 }catch(Exception IllegalStateException) {System.out.println("oops");}

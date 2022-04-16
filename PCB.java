@@ -33,6 +33,7 @@ public class PCB {
    int arrivalTime;
    int priority;
    int burstTime; //CPU burst time
+   int iCpuBurst;//initial cpu burst
    int startTime;
    int terminationTime;
    int roundTime; //turn around time
@@ -58,6 +59,7 @@ public class PCB {
       this.arrivalTime=arrivalTime;
       this.priority=priority;
       this.burstTime=burstTime;
+      iCpuBurst=burstTime;//initial cpu burst
       this.startTime=-1;
       this.terminationTime=-1;
       this.roundTime=-1;
@@ -125,6 +127,14 @@ public class PCB {
    public int getCpuBurst(){
      return burstTime;
    }//
+   
+      public void setICpuBurst(int burstTime){
+      this.iCpuBurst=burstTime;
+   }//
+   
+   public int getICpuBurst(){
+      return iCpuBurst;
+      }
 
    public void setArrivalTime(int arrivalTime){
    this.arrivalTime=arrivalTime;}
