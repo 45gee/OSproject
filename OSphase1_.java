@@ -25,7 +25,7 @@ static Scanner input = new Scanner(System.in);
    static double AVGwaiting;
    static double AVGresponse;
 
-   
+
 
 //////////////////////////////////////////////////////////////////////////
 public static void case1() {
@@ -138,7 +138,7 @@ if(!(Q2.length==0) ){
 for(int i=0;i<Q2.length;i++)
 chQ2.add(Q2[i]);}
 
-/////////////////////////////////////////////////////////case3////////////////////////////////////
+////////////////////////////////////////////////////////case3////////////////////////////////////
 
 //variables needed
 int timer =0;
@@ -325,7 +325,7 @@ System.out.print("P"+ current.getProcessID()+ "|");
 System.out.print("]");
 
 PCB temp;//edit by r
-   
+
       for( int i=0;i< numOfP;i++){
          temp=result.poll();
          AVGturnaround=AVGturnaround+temp.getroundTime();
