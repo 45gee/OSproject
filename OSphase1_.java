@@ -350,13 +350,13 @@ for(int i=0;i<numOfP;i++){
 tmp=result.poll();
 result.add(tmp);
 
-try {pi.println("ID: " +tmp.getProcessID()+" | Start time: "+tmp.getstartTime()+" | Waiting time: "+ tmp.getwaitingTime()+" | Termination time: "+ tmp.getterminationTime()+" | Response time: "+ tmp.getresponseTime()+" | Turn around time"+ tmp.getroundTime());
+try {pi.println("ID: " +tmp.getProcessID()+" | Start time: "+tmp.getstartTime()+" | Waiting time: "+ tmp.getwaitingTime()+" | Termination time: "+ tmp.getterminationTime()+" | Response time: "+ tmp.getresponseTime()+" | Turn around time:"+ tmp.getroundTime());
 pi.print("\n\n[");
-/*for(int j=0; j<numOfP;j++){
+for(int j=0; j<numOfP;j++){
 current = result.poll();
 for(int q=0 ; q<(current.getterminationTime()-current.getstartTime()) ; q++){
 pi.print("P"+ current.getProcessID()+ "|");}
-}*/
+}
 pi.print("]");
 }catch(Exception IllegalStateException) {System.out.println("oops file");}
 }
