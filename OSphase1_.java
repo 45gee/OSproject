@@ -215,7 +215,6 @@ Q2ID=temp2.getProcessID();}
 
 if( temp2.getterminationTime() == -1 ){
 temp2.setstartTime(timer);
-int at = temp2.getArrivalTime();
 
 if(temp2.getwaitingTime()-temp2.getArrivalTime() <0)
 temp2.setresponseTime(0);
@@ -226,7 +225,7 @@ if(temp2.getroundTime() - temp2.getCpuBurst()<0)
 temp2.setwaitingTime(0);
 else
 temp2.setwaitingTime(temp2.getroundTime() - temp2.getCpuBurst());
-
+  
 temp2.setterminationTime(timer+1);
 temp2.setCpuBurst(temp2.getCpuBurst()-1);
 //timer++;
@@ -267,8 +266,18 @@ System.out.printf("%n ID: %d | %-10d | %-12d | %-16d | %-13d | %d", temp.getProc
 temp.getterminationTime(), temp.getresponseTime(), temp.getroundTime());
 }catch(Exception IllegalStateException) {System.out.println("oops");}
 }
+//write in file
+try (FileWriter f = new FileWriter("Report2.txt", true);
+BufferedWriter b = new BufferedWriter(f);
+PrintWriter p = new PrintWriter(b);) {
 
-}
+p.println("Report number -"+(++RNUM)+"-");
+for(int i=0;i<numOfP;i++){
+PCB temp=result.poll();
+p.printf("%n ID: %d | %-10d | %-12d | %-16d | %-13d | %d", temp.getProcessID() , temp.getstartTime(), temp.getwaitingTime(),
+temp.getterminationTime(), temp.getresponseTime(), temp.getroundTime());}
+}catch(Exception e ) {System.out.println("oops");} 
+}//end case 3
    
 ////////////////////////////////////////////////////////////////  
  public static void case2() {
