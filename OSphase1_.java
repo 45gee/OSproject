@@ -25,7 +25,7 @@ static Scanner input = new Scanner(System.in);
    static double AVGwaiting;
    static double AVGresponse;
 
-
+   
 
 //////////////////////////////////////////////////////////////////////////
 public static void case1() {
@@ -138,7 +138,7 @@ if(!(Q2.length==0) ){
 for(int i=0;i<Q2.length;i++)
 chQ2.add(Q2[i]);}
 
-////////////////////////////////////////////////////////case3////////////////////////////////////
+/////////////////////////////////////////////////////////case3////////////////////////////////////
 
 //variables needed
 int timer =0;
@@ -325,7 +325,7 @@ System.out.print("P"+ current.getProcessID()+ "|");
 System.out.print("]");
 
 PCB temp;//edit by r
-
+   
       for( int i=0;i< numOfP;i++){
          temp=result.poll();
          AVGturnaround=AVGturnaround+temp.getroundTime();
@@ -346,20 +346,24 @@ BufferedWriter bi = new BufferedWriter(fi);
 PrintWriter pi = new PrintWriter(bi);) {
 
 pi.println("Report number -2-");
-for(int i=0;i<numOfP;i++){
+
+pi.println("\nAvg turn around time:"+AVGturnaround);
+pi.println("Avg waiting time:"+AVGwaiting);
+pi.println("Avg response time:"+AVGresponse);
+/*for(int i=0;i<numOfP;i++){
 tmp=result.poll();
 result.add(tmp);
 
 try {pi.println("ID: " +tmp.getProcessID()+" | Start time: "+tmp.getstartTime()+" | Waiting time: "+ tmp.getwaitingTime()+" | Termination time: "+ tmp.getterminationTime()+" | Response time: "+ tmp.getresponseTime()+" | Turn around time:"+ tmp.getroundTime());
 pi.print("\n\n[");
-for(int j=0; j<numOfP;j++){
+/*for(int j=0; j<numOfP;j++){
 current = result.poll();
 for(int q=0 ; q<(current.getterminationTime()-current.getstartTime()) ; q++){
 pi.print("P"+ current.getProcessID()+ "|");}
-}
+}//problem
 pi.print("]");
-}catch(Exception IllegalStateException) {System.out.println("oops file");}
-}
+}catch(Exception IllegalStateException) {System.out.println("oops file");}}*/
+
 }catch(IOException i) {i.printStackTrace();}
 }//end case 3
 
