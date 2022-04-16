@@ -126,7 +126,7 @@ static Scanner input = new Scanner(System.in);
       Queue<PCB> chQ1 = new LinkedList<PCB>();
       Queue<PCB> chQ2 = new LinkedList<PCB>();
       Queue<PCB> result = new LinkedList<PCB>();
-      //double AVGturnaround,AVGwaiting,AVGresponse;//edit by r
+     /* //double AVGturnaround,AVGwaiting,AVGresponse;//edit by r
       PCB temp;//edit by r
 
       for( int i=0;i< numOfP;i++){
@@ -137,7 +137,7 @@ static Scanner input = new Scanner(System.in);
          result.add(temp);}//end for
       AVGturnaround= AVGturnaround/numOfP;
       AVGwaiting=  AVGwaiting/numOfP;
-      AVGresponse=  AVGresponse/numOfP;
+      AVGresponse=  AVGresponse/numOfP;*/
 
    //add elements to chQ1
       if(!(Q1.length==0) ){
@@ -319,7 +319,7 @@ static Scanner input = new Scanner(System.in);
 
       for(int i=0;i<numOfP;i++){
 
-         try {temp=result.poll();
+         try {PCB temp=result.poll();
          //System.out.println(temp.getICpuBurst());
          //System.out.println(temp.getroundTime());
 
@@ -337,7 +337,7 @@ static Scanner input = new Scanner(System.in);
 
          pi.println("Report number -2-");
          for(int i=0;i<numOfP;i++){
-            try {temp=result.poll();
+            try {PCB temp=result.poll();
                pi.println("ID: " +temp.getProcessID()+" | Start time: "+temp.getstartTime()+" | Waiting time: "+ temp.getwaitingTime()+" | Termination time: "+ temp.getterminationTime()+" | Response time: "+ temp.getresponseTime()+" | Turn around time"+ temp.getroundTime());
             }catch(Exception IllegalStateException) {System.out.println("oops file");}
          }
@@ -359,7 +359,7 @@ static Scanner input = new Scanner(System.in);
       BufferedWriter b = new BufferedWriter(f);
       PrintWriter p = new PrintWriter(b);) {
 
-         p.println("Report number -"+(++RNUM)+"-");
+         p.println("Report number -"+(++RNUM1)+"-");
          p.println("_____________________________________");
          p.println("--------------Q1----------------------");
          for(int i=0;i<numOfQ1;i++)
