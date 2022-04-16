@@ -18,7 +18,9 @@ static Scanner input = new Scanner(System.in);
    static int numOfQ2=0;
 
    static int PNUM=0;
-   static int RNUM=0;
+   static int RNUM1=0;
+   static int RNUM2=0;
+
    static int maxArrivalQ1=0;
    static int maxArrivalQ2=0;
 
@@ -318,7 +320,7 @@ try (FileWriter fi = new FileWriter("Report2.txt", true);
 BufferedWriter bi = new BufferedWriter(fi);
 PrintWriter pi = new PrintWriter(bi);) {
 
-pi.println("Report number -2-");
+pi.println("Report number -"+(++RNUM2)+"-");
 for(int i=0;i<numOfP;i++){
 try {PCB temp=result.poll();
 pi.println("ID: " +temp.getProcessID()+" | Start time: "+temp.getstartTime()+" | Waiting time: "+ temp.getwaitingTime()+" | Termination time: "+ temp.getterminationTime()+" | Response time: "+ temp.getresponseTime()+" | Turn around time"+ temp.getroundTime());
@@ -328,6 +330,7 @@ pi.println("ID: " +temp.getProcessID()+" | Start time: "+temp.getstartTime()+" |
 }//end case 3
 
 ////////////////////////////////////////////////////////////////
+
  public static void case2() {
 System.out.println("_____________________________________");
 System.out.println("--------------Q1----------------------");
@@ -342,7 +345,7 @@ try (FileWriter f = new FileWriter("Report1.txt", true);
 BufferedWriter b = new BufferedWriter(f);
 PrintWriter p = new PrintWriter(b);) {
 
-p.println("Report number -"+(++RNUM)+"-");
+p.println("Report number -"+(++RNUM1)+"-");
 p.println("_____________________________________");
 p.println("--------------Q1----------------------");
 for(int i=0;i<numOfQ1;i++)
@@ -351,7 +354,9 @@ p.println("#"+(i+1)+" process ID: "+Q1[i].getProcessID()+"|priority:"+Q1[i].getP
 p.println("--------------Q2----------------------");
 for(int i=0;i<numOfQ2;i++)
 p.println("#"+(i+1)+" process ID: "+Q2[i].getProcessID()+"|priority:"+Q2[i].getPriority()+"|CPU burst time:"+Q2[i].getCpuBurst()+"|arrival time:"+Q2[i].getArrivalTime());
-}catch (IOException i) { i.printStackTrace(); } }
+}catch (IOException i) { i.printStackTrace(); } }//end case2
+
+
 ///////////////////////////////////////////////////////////////////
    public static void main(String[] args) throws Exception
     {
@@ -380,7 +385,7 @@ p.println("#"+(i+1)+" process ID: "+Q2[i].getProcessID()+"|priority:"+Q2[i].getP
                     case2();
                     break;
                 case 3:
-                   // System.out.println("\n\t **** Report the average turnaround time, waiting time, and response time **** ");
+                    System.out.println("\n\t **** Report the average turnaround time, waiting time, and response time **** ");
                     case3();
                     break;
                 case 4:

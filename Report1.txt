@@ -1,0 +1,45 @@
+Report number -1-
+_____________________________________
+--------------Q1----------------------
+#1 process ID: 1|priority:1|CPU burst time:2|arrival time:3
+--------------Q2----------------------
+#1 process ID: 0|priority:2|CPU burst time:3|arrival time:2
+Report number -2-
+_____________________________________
+--------------Q1----------------------
+#1 process ID: 1|priority:1|CPU burst time:2|arrival time:3
+--------------Q2----------------------
+#1 process ID: 0|priority:2|CPU burst time:3|arrival time:2
+Report number -3-
+_____________________________________
+--------------Q1----------------------
+#1 process ID: 1|priority:1|CPU burst time:2|arrival time:3
+--------------Q2----------------------
+#1 process ID: 0|priority:2|CPU burst time:3|arrival time:2
+Report number -4-
+_____________________________________
+--------------Q1----------------------
+#1 process ID: 1|priority:1|CPU burst time:2|arrival time:3
+--------------Q2----------------------
+#1 process ID: 0|priority:2|CPU burst time:3|arrival time:2
+Report number -1-
+_____________________________________
+--------------Q1----------------------
+--------------Q2----------------------
+#1 process ID: 0|priority:2|CPU burst time:4|arrival time:1
+#2 process ID: 1|priority:2|CPU burst time:3|arrival time:1
+#3 process ID: 2|priority:2|CPU burst time:1|arrival time:0
+Report number -2-
+_____________________________________
+--------------Q1----------------------
+--------------Q2----------------------
+#1 process ID: 0|priority:2|CPU burst time:4|arrival time:1
+#2 process ID: 1|priority:2|CPU burst time:3|arrival time:1
+#3 process ID: 2|priority:2|CPU burst time:1|arrival time:0
+Report number -3-
+_____________________________________
+--------------Q1----------------------
+--------------Q2----------------------
+#1 process ID: 0|priority:2|CPU burst time:4|arrival time:1
+#2 process ID: 1|priority:2|CPU burst time:3|arrival time:1
+#3 process ID: 2|priority:2|CPU burst time:1|arrival time:0
