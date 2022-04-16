@@ -146,7 +146,7 @@ PCB temp2=new PCB();
 boolean usedQ1=false;
 boolean Q1found=false;
 boolean intr=false;
-int[] cpuHistory = new int[numOfP];
+String cpuHistory = "";
 
 while(true){
 if(timer == 20)
@@ -173,10 +173,15 @@ Q1ID=temp1.getProcessID();
 min=temp1.getCpuBurst();
 preArrTime=temp1.getArrivalTime();} }
 }
+
+if (temp1 != chQ1.element())
+cpuHistory += "P" + chQ1.element().getProcessID() + "|";
+
 chQ1.add(temp1);
-System.out.print(chQ1.element().getProcessID());
-//cpuHistory.add(chQ1[0].getProcessID());
+//System.out.println(chQ1.element().getProcessID());
 }
+//cpu schedule
+
 
 //find P1 using PID
 for(int i=0;i<Q1.length;i++){
@@ -269,6 +274,8 @@ System.out.printf("%n ID: %d | %-10d | %-12d | %-16d | %-13d | %d", temp.getProc
 temp.getterminationTime(), temp.getresponseTime(), temp.getroundTime());
 }catch(Exception IllegalStateException) {System.out.println("oops");}
 }
+
+System.out.print("\n\n CPU Schedule: ["+cpuHistory+"]\n"); 
 
 //write in file
 try (FileWriter fi = new FileWriter("Report2.txt", true);
