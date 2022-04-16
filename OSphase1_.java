@@ -147,11 +147,9 @@ PCB temp2=new PCB();
 boolean usedQ1=false;
 boolean Q1found=false;
 boolean intr=false;
-<<<<<<< Updated upstream
+
 String cpuHistory = "";
-=======
 //int cpuBurst1;
->>>>>>> Stashed changes
 
 while(true){
 if(timer == 20)
@@ -167,7 +165,8 @@ if(chQ1.size() >0){
 for(int i=0;i<Q1.length;i++){
 temp1=chQ1.poll();
 
-if(temp1.getArrivalTime() <= timer){
+if(temp1 != null)
+{ if(temp1.getArrivalTime() <= timer){
 if(temp1.getCpuBurst() <min){
 Q1ID=temp1.getProcessID();
 min=temp1.getCpuBurst();
@@ -177,9 +176,7 @@ if(temp1.getArrivalTime() < preArrTime ){
 Q1ID=temp1.getProcessID();
 min=temp1.getCpuBurst();
 preArrTime=temp1.getArrivalTime();} }
-}
-
-cpuHistory += "P" + chQ1.element().getProcessID() + "|";
+}}
 
 chQ1.add(temp1);
 //System.out.println(chQ1.element().getProcessID());
@@ -235,10 +232,8 @@ temp2.setresponseTime(0);
 temp2.setwaitingTime(0);
 }
 else
-<<<<<<< Updated upstream
 temp2.setwaitingTime(temp2.getroundTime() - temp2.getCpuBurst());
   
-=======
 //temp2.getwaitingTime()-temp2.getArrivalTime() <0 || 
 if(temp2.getroundTime() - temp2.getICpuBurst() <0){
 temp2.setresponseTime(temp2.getArrivalTime()-temp2.getwaitingTime());
@@ -251,7 +246,6 @@ temp2.setwaitingTime(temp2.getroundTime() - temp2.getICpuBurst());
 }
 ////////////////////////
 
->>>>>>> Stashed changes
 temp2.setterminationTime(timer+1);
 temp2.setCpuBurst(temp2.getCpuBurst()-1);
 //timer++;
@@ -288,7 +282,9 @@ result.add(temp2);
 Q2ID=-1;
 countP--;}
 
-}//end q2
+}////////////////////end q2//////////
+
+cpuHistory += "P" + chQ2.element().getProcessID() + "|";
 chQ2.add(temp2);
 
 
