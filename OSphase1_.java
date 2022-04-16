@@ -146,6 +146,7 @@ PCB temp2=new PCB();
 boolean usedQ1=false;
 boolean Q1found=false;
 boolean intr=false;
+int[] cpuHistory = new int[numOfP];
 
 while(true){
 if(timer == 20)
@@ -172,8 +173,10 @@ Q1ID=temp1.getProcessID();
 min=temp1.getCpuBurst();
 preArrTime=temp1.getArrivalTime();} }
 }
-
-chQ1.add(temp1);}
+chQ1.add(temp1);
+System.out.print(chQ1.element().getProcessID());
+//cpuHistory.add(chQ1[0].getProcessID());
+}
 
 //find P1 using PID
 for(int i=0;i<Q1.length;i++){
@@ -276,7 +279,7 @@ pi.println("Report number -2-");
 for(int i=0;i<numOfP;i++){
 try {PCB temp=result.poll();
 pi.println("ID: " +temp.getProcessID()+" | Start time: "+temp.getstartTime()+" | Waiting time: "+ temp.getwaitingTime()+" | Termination time: "+ temp.getterminationTime()+" | Response time: "+ temp.getresponseTime()+" | Turn around time"+ temp.getroundTime());
-}catch(Exception IllegalStateException) {System.out.println("oops");}
+}catch(Exception IllegalStateException) {System.out.println("oops file");}
 }
 }catch(IOException i) {i.printStackTrace();} 
 }//end case 3
