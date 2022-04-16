@@ -74,7 +74,7 @@ i1++;}
 else{
 Q2[i2]=PCBarray[i];
 i2++;}
-    
+
 }
 
 for(int i=0;i<Q1.length;i++){
@@ -92,8 +92,8 @@ maxArrivalQ2=temp;}
 
 }
 static class arrivalTimeComparator implements Comparator<PCB>{
-              
-            // Overriding compare()method of Comparator 
+
+            // Overriding compare()method of Comparator
                         // for descending order of cgpa
             public int compare(PCB PCB1, PCB PCB2) {
                 if (PCB1.arrivalTime > PCB2.arrivalTime)
@@ -105,8 +105,8 @@ static class arrivalTimeComparator implements Comparator<PCB>{
 }
 
 static class burstTimeComparator implements Comparator<PCB>{
-              
-            // Overriding compare()method of Comparator 
+
+            // Overriding compare()method of Comparator
                         // for descending order of cgpa
             public int compare(PCB PCB1, PCB PCB2) {
                 if (PCB1.burstTime > PCB2.burstTime)
@@ -123,7 +123,7 @@ Queue<PCB> chQ1 = new LinkedList<PCB>();
 Queue<PCB> chQ2 = new LinkedList<PCB>();
 Queue<PCB> result = new LinkedList<PCB>();
 
-//add elements to chQ1 
+//add elements to chQ1
 if(!(Q1.length==0) ){
 for(int i=0;i<Q1.length;i++)
 chQ1.add(Q1[i]);}
@@ -208,7 +208,7 @@ result.add(temp1);
 usedQ1=true;
 countP--;
 if(!(Q2ID==-1))
-intr=true;}  
+intr=true;}
 
 }
 
@@ -233,8 +233,8 @@ temp2.setwaitingTime(0);
 }
 else
 temp2.setwaitingTime(temp2.getroundTime() - temp2.getCpuBurst());
-  
-//temp2.getwaitingTime()-temp2.getArrivalTime() <0 || 
+
+//temp2.getwaitingTime()-temp2.getArrivalTime() <0 ||
 if(temp2.getroundTime() - temp2.getICpuBurst() <0){
 temp2.setresponseTime(temp2.getArrivalTime()-temp2.getwaitingTime());
 temp2.setwaitingTime(temp2.getICpuBurst() - temp2.getroundTime());
@@ -311,7 +311,7 @@ temp.getterminationTime(), temp.getresponseTime(), temp.getroundTime());
 }catch(Exception IllegalStateException) {System.out.println("oops");}
 }
 
-System.out.print("\n\n CPU Schedule: ["+cpuHistory+"]\n"); 
+System.out.print("\n\n CPU Schedule: ["+cpuHistory+"]\n");
 
 //write in file
 try (FileWriter fi = new FileWriter("Report2.txt", true);
@@ -324,10 +324,10 @@ try {PCB temp=result.poll();
 pi.println("ID: " +temp.getProcessID()+" | Start time: "+temp.getstartTime()+" | Waiting time: "+ temp.getwaitingTime()+" | Termination time: "+ temp.getterminationTime()+" | Response time: "+ temp.getresponseTime()+" | Turn around time"+ temp.getroundTime());
 }catch(Exception IllegalStateException) {System.out.println("oops file");}
 }
-}catch(IOException i) {i.printStackTrace();} 
+}catch(IOException i) {i.printStackTrace();}
 }//end case 3
-   
-////////////////////////////////////////////////////////////////  
+
+////////////////////////////////////////////////////////////////
  public static void case2() {
 System.out.println("_____________________________________");
 System.out.println("--------------Q1----------------------");
@@ -354,10 +354,10 @@ p.println("#"+(i+1)+" process ID: "+Q2[i].getProcessID()+"|priority:"+Q2[i].getP
 }catch (IOException i) { i.printStackTrace(); } }
 ///////////////////////////////////////////////////////////////////
    public static void main(String[] args) throws Exception
-    {  
+    {
         boolean stop = false;
         do
-        {    
+        {
             System.out.println("\n\n\t\t\t **** OS Schedule **** \n");
             System.out.println("Welcome to the Operating Systems Schedule!"+
                                 "\n\nPlease choose a number from the menu:\n"+
@@ -365,10 +365,10 @@ p.println("#"+(i+1)+" process ID: "+Q2[i].getProcessID()+"|priority:"+Q2[i].getP
                                 "\n2. Report detailed information about each process"+
                                 "\n3. Report the average turnaround time, waiting time, and response time"+
                                 "\n4. Exit");
-           
+
             Scanner obj = new Scanner(System.in);
             int choice = obj.nextInt();
-           
+
             switch (choice)
             {
                 case 1:
